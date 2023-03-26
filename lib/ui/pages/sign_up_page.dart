@@ -1,10 +1,12 @@
 import 'package:bank_purse2/shared/theme.dart';
-import 'package:bank_purse2/ui/widgets/buttons.dart';
 import 'package:flutter/material.dart';
 
+import '../widgets/buttons.dart';
 import '../widgets/forms.dart';
 
-class SignInPage extends StatelessWidget {
+class SignUpPage extends StatelessWidget {
+  const SignUpPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,7 +32,7 @@ class SignInPage extends StatelessWidget {
             ),
           ),
           Text(
-            'Sign in &\nGrow your finance',
+            'Join us to unlock\nyour growth',
             style: blackTextStyle.copyWith(
               fontSize: 20,
               fontWeight: semiBold,
@@ -48,6 +50,13 @@ class SignInPage extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                //NOTE: Name INPUT
+                CustomFormField(
+                  title: 'Full Name',
+                ),
+                const SizedBox(
+                  height: 16,
+                ),
                 //NOTE: EMAIL INPUT
                 CustomFormField(
                   title: 'Email Address',
@@ -60,21 +69,12 @@ class SignInPage extends StatelessWidget {
                   title: 'Password',
                   obscureText: true,
                 ),
-                const SizedBox(
-                  height: 8,
-                ),
-                Align(
-                  alignment: Alignment.centerRight,
-                  child: Text(
-                    'Forgot Password?',
-                    style: blueTextStyle,
-                  ),
-                ),
+
                 const SizedBox(
                   height: 30,
                 ),
                 CustomFilledButton(
-                  title: 'Sign In',
+                  title: 'Continue',
                   onPressed: () {},
                 ),
               ],
@@ -84,9 +84,9 @@ class SignInPage extends StatelessWidget {
             height: 50,
           ),
           CustomTextButton(
-            title: 'Create New Account',
+            title: 'Sign In',
             onPressed: () {
-              Navigator.pushNamed(context, '/sign-up');
+              Navigator.pushNamed(context, '/sign-in');
             },
           ),
         ],
