@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import '../widgets/buttons.dart';
 import '../widgets/forms.dart';
 
-class SignUpSetProfilePage extends StatelessWidget {
-  const SignUpSetProfilePage({super.key});
+class SignUpSetKtpPage extends StatelessWidget {
+  const SignUpSetKtpPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +32,7 @@ class SignUpSetProfilePage extends StatelessWidget {
             ),
           ),
           Text(
-            'Join us to unlock\nyour growth',
+            'Verify your\nAccount',
             style: blackTextStyle.copyWith(
               fontSize: 20,
               fontWeight: semiBold,
@@ -48,7 +48,7 @@ class SignUpSetProfilePage extends StatelessWidget {
               color: whiteColor,
             ),
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Container(
                   width: 120,
@@ -81,38 +81,29 @@ class SignUpSetProfilePage extends StatelessWidget {
                   height: 16,
                 ),
                 Text(
-                  'Shayna Hanna',
+                  'ID/Passport Card',
                   style: blackTextStyle.copyWith(
                     fontSize: 18,
                     fontWeight: medium,
                   ),
                 ),
                 const SizedBox(
-                  height: 30,
-                ),
-                const CustomFormField(
-                  title: 'Set PIN (6 digit number)',
-                  obscureText: true,
-                ),
-                const SizedBox(
-                  height: 30,
+                  height: 50,
                 ),
                 CustomFilledButton(
                   title: 'Continue',
-                  onPressed: () {
-                    Navigator.pushNamed(context, '/sign-up-set-ktp');
-                  },
+                  onPressed: () {},
                 ),
               ],
             ),
           ),
           const SizedBox(
-            height: 50,
+            height: 60,
           ),
           CustomTextButton(
-            title: 'Sign In',
+            title: 'skip for now',
             onPressed: () {
-              Navigator.pushNamed(context, '/sign-in');
+              Navigator.pushNamed(context, '/sign-up-success');
             },
           ),
         ],
