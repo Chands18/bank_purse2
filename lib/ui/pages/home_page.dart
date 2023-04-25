@@ -78,6 +78,7 @@ class HomePage extends StatelessWidget {
         ),
         children: [
           buildProfile(),
+          buildWalletCard(),
         ],
       ),
     );
@@ -139,6 +140,65 @@ class HomePage extends StatelessWidget {
                   ),
                 ),
               ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget buildWalletCard() {
+    return Container(
+      width: double.infinity,
+      height: 220,
+      margin: const EdgeInsets.only(
+        top: 30,
+      ),
+      padding: const EdgeInsets.all(30),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(
+          28,
+        ),
+        image: const DecorationImage(
+          fit: BoxFit.cover,
+          image: AssetImage(
+            'assets/img_bg_card.png',
+          ),
+        ),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            'faridz',
+            style: whiteTextStyle.copyWith(
+              fontSize: 18,
+              fontWeight: medium,
+            ),
+          ),
+          const SizedBox(
+            height: 21,
+          ),
+          Text(
+            '**** **** **** 1280',
+            style: whiteTextStyle.copyWith(
+              fontSize: 18,
+              fontWeight: medium,
+              letterSpacing: 6,
+            ),
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          Text(
+            'Balance',
+            style: whiteTextStyle,
+          ),
+          Text(
+            'Rp 12,500',
+            style: whiteTextStyle.copyWith(
+              fontSize: 22,
+              fontWeight: semiBold,
             ),
           ),
         ],
