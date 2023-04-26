@@ -1,4 +1,5 @@
 import 'package:bank_purse2/shared/theme.dart';
+import 'package:bank_purse2/ui/widgets/bank_item.dart';
 import 'package:bank_purse2/ui/widgets/buttons.dart';
 import 'package:flutter/material.dart';
 
@@ -117,6 +118,23 @@ class TopUpPage extends StatelessWidget {
           ),
           const SizedBox(
             height: 14,
+          ),
+          const BankItem(
+            imageUrl: 'assets/img_bank_bca.png',
+            title: 'Bank BCA',
+            isSelected: true,
+          ),
+          const BankItem(
+            imageUrl: 'assets/img_bank_bni.png',
+            title: 'Bank BNI',
+          ),
+          const BankItem(
+            imageUrl: 'assets/img_bank_mandiri.png',
+            title: 'Bank Mandiri',
+          ),
+          const BankItem(
+            imageUrl: 'assets/img_bank_ocbc.png',
+            title: 'Bank OCBC',
           ),
           // BlocProvider(
           //   create: (context) => PaymentMethodBloc()..add(PaymentMethodGet()),
