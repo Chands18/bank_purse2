@@ -30,8 +30,8 @@ class ProfileEditPinPage extends StatelessWidget {
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: const [
-                CustomFormField(
+              children: [
+                const CustomFormField(
                   title: 'Old PIN',
                   // controller: oldPinController,
                   obscureText: true,
@@ -39,7 +39,7 @@ class ProfileEditPinPage extends StatelessWidget {
                 const SizedBox(
                   height: 16,
                 ),
-                CustomFormField(
+                const CustomFormField(
                   title: 'New PIN',
                   // controller: newPinController,
                   obscureText: true,
@@ -49,6 +49,10 @@ class ProfileEditPinPage extends StatelessWidget {
                 ),
                 CustomFilledButton(
                   title: 'Update Now',
+                  onPressed: () {
+                    Navigator.pushNamedAndRemoveUntil(
+                        context, '/profile-edit-success', (route) => false);
+                  },
                   // onPressed: () {
                   //   context.read<AuthBloc>().add(
                   //         AuthUpdatePin(

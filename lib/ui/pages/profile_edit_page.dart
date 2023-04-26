@@ -30,38 +30,42 @@ class ProfileEditPage extends StatelessWidget {
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: const [
-                CustomFormField(
+              children: [
+                const CustomFormField(
                   title: 'Username',
                   // controller: usernameController,
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 16,
                 ),
-                CustomFormField(
+                const CustomFormField(
                   title: 'Full Name',
                   // controller: nameController,
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 16,
                 ),
-                CustomFormField(
+                const CustomFormField(
                   title: 'Email Address',
                   // controller: emailController,
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 16,
                 ),
-                CustomFormField(
+                const CustomFormField(
                   title: 'Password',
                   obscureText: true,
                   // controller: passwordController,
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 30,
                 ),
                 CustomFilledButton(
                   title: 'Update Now',
+                  onPressed: () {
+                    Navigator.pushNamedAndRemoveUntil(
+                        context, '/profile-edit-success', (route) => false);
+                  },
                   // onPressed: () {
                   //   // context.read<AuthBloc>().add(
                   //   //       AuthUpdateUser(
