@@ -171,6 +171,7 @@ class TopUpPage extends StatelessWidget {
           CustomFilledButton(
             title: 'Continue',
             onPressed: () {
+              Navigator.pushNamed(context, '/topup-amount');
               // if (selectedPaymentMethod != null) {
               //   Navigator.push(
               //     context,
