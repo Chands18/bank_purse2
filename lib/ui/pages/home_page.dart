@@ -1,6 +1,7 @@
 import 'package:bank_purse2/shared/theme.dart';
 import 'package:bank_purse2/ui/widgets/home_latest_transactions_item.dart';
 import 'package:bank_purse2/ui/widgets/home_service_item.dart';
+import 'package:bank_purse2/ui/widgets/home_user_item.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -84,6 +85,7 @@ class HomePage extends StatelessWidget {
           buildLevel(),
           buildServices(),
           buildLatestTransactions(),
+          buildSendAgain(),
         ],
       ),
     );
@@ -373,6 +375,87 @@ class HomePage extends StatelessWidget {
               ],
             ),
           ),
+        ],
+      ),
+    );
+  }
+
+  Widget buildSendAgain() {
+    return Container(
+      margin: const EdgeInsets.only(
+        top: 30,
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            'Send Again',
+            style: blackTextStyle.copyWith(
+              fontSize: 16,
+              fontWeight: semiBold,
+            ),
+          ),
+          const SizedBox(
+            height: 14,
+          ),
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(
+              children: const [
+                HomeUserItem(
+                  imageUrl: 'assets/img_friend1.png',
+                  username: 'oli',
+                ),
+                HomeUserItem(
+                  imageUrl: 'assets/img_friend2.png',
+                  username: 'Maggie',
+                ),
+                HomeUserItem(
+                  imageUrl: 'assets/img_friend3.png',
+                  username: 'Lamar',
+                ),
+                HomeUserItem(
+                  imageUrl: 'assets/img_friend4.png',
+                  username: 'Jack',
+                ),
+              ],
+            ),
+          )
+          // BlocProvider(
+          //   create: (context) => UserBloc()..add(UserGetRecent()),
+          //   child: BlocBuilder<UserBloc, UserState>(
+          //     builder: (context, state) {
+          //       if (state is UserSuccess) {
+          //         return SingleChildScrollView(
+          //           scrollDirection: Axis.horizontal,
+          //           child: Row(
+          //             children: state.users.map((user) {
+          //               return GestureDetector(
+          //                 onTap: () {
+          //                   Navigator.push(
+          //                     context,
+          //                     MaterialPageRoute(
+          //                       builder: (context) => TransferAmountPage(
+          //                         data: TransferFormModel(
+          //                           sendTo: user.username,
+          //                         ),
+          //                       ),
+          //                     ),
+          //                   );
+          //                 },
+          //                 child: HomeUserItem(user: user),
+          //               );
+          //             }).toList(),
+          //           ),
+          //         );
+          //       }
+
+          //       return const Center(
+          //         child: CircularProgressIndicator(),
+          //       );
+          //     },
+          //   ),
+          // ),
         ],
       ),
     );
