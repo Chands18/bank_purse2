@@ -22,13 +22,9 @@ class _PinPageState extends State<PinPage> {
     // ignore: avoid_print
     print(pinController.text);
 
-    // if (pinController.text.length == 6) {
-    //   if (pinController.text == pin) {
-    //     Navigator.pop(context, true);
-    //   } else {
-    //     showCustomSnackbar(context, 'PIN yang anda masukkan salah');
-    //   }
-    // }
+    if (pinController.text.length == 6) {
+      Navigator.pop(context, true);
+    }
   }
 
   deletePin() {
@@ -55,7 +51,7 @@ class _PinPageState extends State<PinPage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                'Sha PIN',
+                'Enter PIN',
                 style: whiteTextStyle.copyWith(
                   fontSize: 20,
                   fontWeight: semiBold,
