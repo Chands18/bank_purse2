@@ -1,6 +1,7 @@
 import 'package:bank_purse2/shared/theme.dart';
 import 'package:bank_purse2/ui/widgets/home_latest_transactions_item.dart';
 import 'package:bank_purse2/ui/widgets/home_service_item.dart';
+import 'package:bank_purse2/ui/widgets/home_tips_item.dart';
 import 'package:bank_purse2/ui/widgets/home_user_item.dart';
 import 'package:flutter/material.dart';
 
@@ -86,6 +87,7 @@ class HomePage extends StatelessWidget {
           buildServices(),
           buildLatestTransactions(),
           buildSendAgain(),
+          buildFriendlyTips(),
         ],
       ),
     );
@@ -447,6 +449,77 @@ class HomePage extends StatelessWidget {
           //               );
           //             }).toList(),
           //           ),
+          //         );
+          //       }
+
+          //       return const Center(
+          //         child: CircularProgressIndicator(),
+          //       );
+          //     },
+          //   ),
+          // ),
+        ],
+      ),
+    );
+  }
+
+  Widget buildFriendlyTips() {
+    return Container(
+      margin: const EdgeInsets.only(
+        top: 30,
+        bottom: 50,
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            'Friendly Tips',
+            style: blackTextStyle.copyWith(
+              fontSize: 16,
+              fontWeight: semiBold,
+            ),
+          ),
+          const SizedBox(
+            height: 14,
+          ),
+          Wrap(
+            spacing: 19,
+            runSpacing: 18,
+            children: const [
+              HomeTipsItem(
+                imageUrl: 'assets/img_tips1.png',
+                title: 'Best tips for you',
+                url: 'https:www.google.com',
+              ),
+              HomeTipsItem(
+                imageUrl: 'assets/img_tips2.png',
+                title: 'Best tips for you',
+                url: 'https:www.google.com',
+              ),
+              HomeTipsItem(
+                imageUrl: 'assets/img_tips3.png',
+                title: 'Best tips for you',
+                url: 'https:www.google.com',
+              ),
+              HomeTipsItem(
+                imageUrl: 'assets/img_tips4.png',
+                title: 'Best tips for you',
+                url: 'https:www.google.com',
+              ),
+            ],
+          ),
+
+          // BlocProvider(
+          //   create: (context) => TipsBloc()..add(TipsGet()),
+          //   child: BlocBuilder<TipsBloc, TipsState>(
+          //     builder: (context, state) {
+          //       if (state is TipsSuccess) {
+          //         return Wrap(
+          //           spacing: 17,
+          //           runSpacing: 18,
+          //           children: state.tips.map((tip) {
+          //             return HomeTipsItem(tips: tip);
+          //           }).toList(),
           //         );
           //       }
 
