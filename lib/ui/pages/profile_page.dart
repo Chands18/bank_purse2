@@ -1,4 +1,6 @@
 import 'package:bank_purse2/shared/theme.dart';
+import 'package:bank_purse2/ui/widgets/buttons.dart';
+import 'package:bank_purse2/ui/widgets/profile_menu_item.dart';
 import 'package:flutter/material.dart';
 
 class ProfilePage extends StatelessWidget {
@@ -26,7 +28,7 @@ class ProfilePage extends StatelessWidget {
         ),
         children: [
           const SizedBox(
-            height: 40,
+            height: 30,
           ),
           Container(
             padding: const EdgeInsets.symmetric(
@@ -79,8 +81,75 @@ class ProfilePage extends StatelessWidget {
                     fontWeight: medium,
                   ),
                 ),
+                const SizedBox(
+                  height: 40,
+                ),
+                ProfileMenuItem(
+                  iconUrl: 'assets/ic_edit_profile.png',
+                  title: 'Edit Profile',
+                  onTap: () async {
+                    // if (await Navigator.pushNamed(context, '/pin') ==
+                    //     true) {
+                    //   Navigator.push(
+                    //     context,
+                    //     MaterialPageRoute(
+                    //       builder: (context) => ProfileEditPage(
+                    //         user: state.data,
+                    //       ),
+                    //     ),
+                    //   );
+                    // }
+                  },
+                ),
+                ProfileMenuItem(
+                  iconUrl: 'assets/ic_pin.png',
+                  title: 'My Pin',
+                  onTap: () async {
+                    // if (await Navigator.pushNamed(context, '/pin') ==
+                    //     true) {
+                    //   Navigator.push(
+                    //     context,
+                    //     MaterialPageRoute(
+                    //       builder: (context) => ProfileEditPinPage(
+                    //         user: state.data,
+                    //       ),
+                    //     ),
+                    //   );
+                    // }
+                  },
+                ),
+                ProfileMenuItem(
+                  iconUrl: 'assets/ic_wallet.png',
+                  title: 'Wallet Settings',
+                  onTap: () {},
+                ),
+                ProfileMenuItem(
+                  iconUrl: 'assets/ic_reward.png',
+                  title: 'My Rewards',
+                  onTap: () {},
+                ),
+                ProfileMenuItem(
+                  iconUrl: 'assets/ic_help.png',
+                  title: 'Help Center',
+                  onTap: () {},
+                ),
+                ProfileMenuItem(
+                  iconUrl: 'assets/ic_logout.png',
+                  title: 'Log Out',
+                  onTap: () {},
+                ),
               ],
             ),
+          ),
+          const SizedBox(
+            height: 87,
+          ),
+          CustomTextButton(
+            title: 'Report a Problem',
+            onPressed: () {},
+          ),
+          const SizedBox(
+            height: 50,
           ),
         ],
       ),
