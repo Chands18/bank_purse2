@@ -485,26 +485,26 @@ class HomePage extends StatelessWidget {
           Wrap(
             spacing: 19,
             runSpacing: 18,
-            children: const [
+            children: [
               HomeTipsItem(
                 imageUrl: 'assets/img_tips1.png',
                 title: 'Best tips for you',
-                url: 'https:www.google.com',
+                url: Uri.parse('https://www.google.com'),
               ),
               HomeTipsItem(
                 imageUrl: 'assets/img_tips2.png',
                 title: 'Best tips for you',
-                url: 'https:www.google.com',
+                url: Uri.parse('https://www.google.com'),
               ),
               HomeTipsItem(
                 imageUrl: 'assets/img_tips3.png',
                 title: 'Best tips for you',
-                url: 'https:www.google.com',
+                url: Uri.parse('https://www.google.com'),
               ),
               HomeTipsItem(
                 imageUrl: 'assets/img_tips4.png',
                 title: 'Best tips for you',
-                url: 'https:www.google.com',
+                url: Uri.parse('https://www.google.com'),
               ),
             ],
           ),

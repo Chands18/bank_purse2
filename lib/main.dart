@@ -9,7 +9,7 @@ import 'package:flutter/material.dart';
 
 import 'ui/pages/sign_up_success_page.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
