@@ -57,6 +57,7 @@ class TransferPage extends StatelessWidget {
           CustomFilledButton(
             title: 'Continue',
             onPressed: () {
+              Navigator.pushNamed(context, '/transfer-amount');
               // Navigator.push(
               //   context,
               //   MaterialPageRoute(
