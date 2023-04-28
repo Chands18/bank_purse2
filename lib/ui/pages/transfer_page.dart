@@ -1,6 +1,8 @@
 import 'package:bank_purse2/shared/theme.dart';
+import 'package:bank_purse2/ui/widgets/buttons.dart';
 import 'package:bank_purse2/ui/widgets/forms.dart';
 import 'package:bank_purse2/ui/widgets/transfer_recent_user_item.dart';
+import 'package:bank_purse2/ui/widgets/transfer_result_user_item.dart';
 import 'package:flutter/material.dart';
 
 class TransferPage extends StatelessWidget {
@@ -45,27 +47,28 @@ class TransferPage extends StatelessWidget {
             //   setState(() {});
             // },
           ),
-          buildRecentUsers(),
+          // buildRecentUsers(),
+          buildResult(),
           // usernameController.text.isEmpty ? buildRecentUsers() : buildResult(),
           const SizedBox(
-            height: 80,
+            height: 274,
           ),
           // if (selectedUser != null)
-          //   CustomFilledButton(
-          //     title: 'Continue',
-          //     onPressed: () {
-          //       Navigator.push(
-          //         context,
-          //         MaterialPageRoute(
-          //           builder: (context) => TransferAmountPage(
-          //             data: TransferFormModel(
-          //               sendTo: selectedUser?.username,
-          //             ),
-          //           ),
-          //         ),
-          //       );
-          //     },
-          //   ),
+          CustomFilledButton(
+            title: 'Continue',
+            onPressed: () {
+              // Navigator.push(
+              //   context,
+              //   MaterialPageRoute(
+              //     builder: (context) => TransferAmountPage(
+              //       data: TransferFormModel(
+              //         sendTo: selectedUser?.username,
+              //       ),
+              //     ),
+              //   ),
+              // );
+            },
+          ),
           const SizedBox(
             height: 50,
           ),
@@ -157,6 +160,24 @@ Widget buildResult() {
         const SizedBox(
           height: 14,
         ),
+        Center(
+          child: Wrap(spacing: 17, runSpacing: 17, children: const [
+            TransferResultUserItem(
+              imageUrl: 'assets/img_friend1.png',
+              name: 'Victoria',
+              username: 'Vpfifer',
+              isVerified: true,
+            ),
+            TransferResultUserItem(
+              imageUrl: 'assets/img_friend1.png',
+              name: 'Victoria',
+              username: 'Vpfifer',
+              isVerified: true,
+              isSelected: true,
+            ),
+          ]),
+        )
+
         // BlocBuilder<UserBloc, UserState>(
         //   builder: (context, state) {
         //     if (state is UserSuccess) {
