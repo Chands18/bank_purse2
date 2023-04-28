@@ -303,6 +303,7 @@ class HomePage extends StatelessWidget {
                 iconUrl: 'assets/ic_send.png',
                 title: 'Send',
                 onTap: () {
+                  Navigator.pushNamed(context, '/transfer');
                   // Navigator.pushNamed(context, '/transfer');
                 },
               ),
