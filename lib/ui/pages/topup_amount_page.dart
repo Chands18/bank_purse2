@@ -11,10 +11,13 @@ class TopUpAmountPage extends StatefulWidget {
 
 class _TopUpAmountPageState extends State<TopUpAmountPage> {
   final TextEditingController amountController =
-      TextEditingController(text: '');
+      TextEditingController(text: '0');
   String pin = '';
 
   addAmount(String number) {
+    if (amountController.text == '0') {
+      amountController.text = '';
+    }
     setState(() {
       amountController.text = amountController.text + number;
     });
@@ -22,10 +25,15 @@ class _TopUpAmountPageState extends State<TopUpAmountPage> {
 
   deleteAmount() {
     if (amountController.text.isNotEmpty) {
-      setState(() {
-        amountController.text = amountController.text
-            .substring(0, amountController.text.length - 1);
-      });
+      setState(
+        () {
+          amountController.text = amountController.text
+              .substring(0, amountController.text.length - 1);
+          if (amountController.text == '') {
+            amountController.text = '0';
+          }
+        },
+      );
     }
   }
 
@@ -39,7 +47,7 @@ class _TopUpAmountPageState extends State<TopUpAmountPage> {
         ),
         children: [
           const SizedBox(
-            height: 36,
+            height: 56,
           ),
           Center(
             child: Text(
@@ -53,27 +61,29 @@ class _TopUpAmountPageState extends State<TopUpAmountPage> {
           const SizedBox(
             height: 67,
           ),
-          SizedBox(
-            width: 200,
-            child: TextFormField(
-              controller: amountController,
-              cursorColor: greyColor,
-              enabled: false,
-              style: whiteTextStyle.copyWith(
-                fontSize: 36,
-                fontWeight: medium,
-              ),
-              decoration: InputDecoration(
-                prefixIcon: Text(
-                  'Rp.',
-                  style: whiteTextStyle.copyWith(
-                    fontSize: 36,
-                    fontWeight: medium,
-                  ),
+          Align(
+            child: SizedBox(
+              width: 200,
+              child: TextFormField(
+                controller: amountController,
+                cursorColor: greyColor,
+                enabled: false,
+                style: whiteTextStyle.copyWith(
+                  fontSize: 36,
+                  fontWeight: medium,
                 ),
-                disabledBorder: UnderlineInputBorder(
-                  borderSide: BorderSide(
-                    color: greyColor,
+                decoration: InputDecoration(
+                  prefixIcon: Text(
+                    'Rp.',
+                    style: whiteTextStyle.copyWith(
+                      fontSize: 36,
+                      fontWeight: medium,
+                    ),
+                  ),
+                  disabledBorder: UnderlineInputBorder(
+                    borderSide: BorderSide(
+                      color: greyColor,
+                    ),
                   ),
                 ),
               ),
@@ -172,6 +182,41 @@ class _TopUpAmountPageState extends State<TopUpAmountPage> {
                 ),
               ],
             ),
+          ),
+          const SizedBox(
+            height: 50,
+          ),
+          CustomFilledButton(
+            title: 'Check Out Now',
+            onPressed: () async {
+              // if (await Navigator.pushNamed(context, '/pin') == true) {
+              //   final authState = context.read<AuthBloc>().state;
+              //   String pin = '';
+              //   if (authState is AuthSuccess) {
+              //     pin = authState.data.pin!;
+              //   }
+
+              //   context.read<TransferFormBloc>().add(
+              //         TransferFormPost(
+              //           widget.data.copyWith(
+              //             pin: pin,
+              //             amount:
+              //                 amountController.text.replaceAll('.', ''),
+              //           ),
+              //         ),
+              //       );
+              // }
+            },
+          ),
+          const SizedBox(
+            height: 25,
+          ),
+          CustomTextButton(
+            title: 'Terms & Conditions',
+            onPressed: () {},
+          ),
+          const SizedBox(
+            height: 40,
           ),
         ],
       ),
