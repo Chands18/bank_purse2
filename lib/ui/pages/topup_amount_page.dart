@@ -1,8 +1,12 @@
 import 'package:bank_purse2/shared/theme.dart';
 import 'package:bank_purse2/ui/widgets/buttons.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 class TopUpAmountPage extends StatefulWidget {
+  // final webs = Uri.parse('https://demo.midtrans.com/');
   const TopUpAmountPage({super.key});
 
   @override
@@ -13,6 +17,27 @@ class _TopUpAmountPageState extends State<TopUpAmountPage> {
   final TextEditingController amountController =
       TextEditingController(text: '0');
   String pin = '';
+
+  @override
+  void initState() {
+    super.initState();
+
+    amountController.addListener(() {
+      final text = amountController.text;
+
+      amountController.value = amountController.value.copyWith(
+        text: NumberFormat.currency(
+          locale: 'id',
+          decimalDigits: 0,
+          symbol: '',
+        ).format(
+          int.parse(
+            text == '' ? '0' : text.replaceAll('.', ''),
+          ),
+        ),
+      );
+    });
+  }
 
   addAmount(String number) {
     if (amountController.text == '0') {
@@ -74,7 +99,7 @@ class _TopUpAmountPageState extends State<TopUpAmountPage> {
                 ),
                 decoration: InputDecoration(
                   prefixIcon: Text(
-                    'Rp.',
+                    'Rp',
                     style: whiteTextStyle.copyWith(
                       fontSize: 36,
                       fontWeight: medium,
@@ -190,6 +215,8 @@ class _TopUpAmountPageState extends State<TopUpAmountPage> {
             title: 'Check Out Now',
             onPressed: () async {
               if (await Navigator.pushNamed(context, '/pin') == true) {
+                await launchUrlString('https://demo.midtrans.com/');
+
                 Navigator.pushNamedAndRemoveUntil(
                     context, '/topup-success', (route) => false);
               }
