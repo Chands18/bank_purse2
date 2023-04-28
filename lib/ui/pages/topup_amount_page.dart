@@ -189,6 +189,11 @@ class _TopUpAmountPageState extends State<TopUpAmountPage> {
           CustomFilledButton(
             title: 'Check Out Now',
             onPressed: () async {
+              if (await Navigator.pushNamed(context, '/pin') == true) {
+                Navigator.pushNamedAndRemoveUntil(
+                    context, '/topup-success', (route) => false);
+              }
+
               // if (await Navigator.pushNamed(context, '/pin') == true) {
               //   final authState = context.read<AuthBloc>().state;
               //   String pin = '';
