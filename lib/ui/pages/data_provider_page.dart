@@ -164,6 +164,7 @@ class DataProviderPage extends StatelessWidget {
           CustomFilledButton(
             title: 'Continue',
             onPressed: () {
+              Navigator.pushNamed(context, '/data-package');
               // Navigator.push(
               //   context,
               //   MaterialPageRoute(
