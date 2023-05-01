@@ -568,7 +568,7 @@ class MoreDialog extends StatelessWidget {
               ),
             ),
             const SizedBox(
-              height: 9,
+              height: 10,
             ),
             Center(
               child: Wrap(
