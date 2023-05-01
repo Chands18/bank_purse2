@@ -1,4 +1,5 @@
 import 'package:bank_purse2/shared/theme.dart';
+import 'package:bank_purse2/ui/pages/data_package_page.dart';
 import 'package:bank_purse2/ui/pages/data_provider_page.dart';
 import 'package:bank_purse2/ui/pages/home_page.dart';
 import 'package:bank_purse2/ui/pages/onboarding_page.dart';
@@ -67,6 +68,7 @@ class MyApp extends StatelessWidget {
         '/transfer-amount': (context) => const TransferAmountPage(),
         '/transfer-success': (context) => const TransferSuccessPage(),
         '/data-provider': (context) => const DataProviderPage(),
+        '/data-package': (context) => const DataPackagePage(),
       },
     );
   }
