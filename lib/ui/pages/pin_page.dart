@@ -1,3 +1,4 @@
+import 'package:bank_purse2/shared/helpers.dart';
 import 'package:bank_purse2/shared/theme.dart';
 import 'package:bank_purse2/ui/widgets/buttons.dart';
 import 'package:flutter/material.dart';
@@ -20,10 +21,13 @@ class _PinPageState extends State<PinPage> {
       });
     }
     // ignore: avoid_print
-    print(pinController.text);
 
     if (pinController.text.length == 6) {
-      Navigator.pop(context, true);
+      if (pinController.text == '111111') {
+        Navigator.pop(context, true);
+      } else {
+        showCustomSnackbar(context, 'PIN anda salah');
+      }
     }
   }
 
