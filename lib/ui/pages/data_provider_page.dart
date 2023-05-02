@@ -1,3 +1,4 @@
+import 'package:bank_purse2/shared/helpers.dart';
 import 'package:bank_purse2/shared/theme.dart';
 import 'package:bank_purse2/ui/widgets/buttons.dart';
 import 'package:bank_purse2/ui/widgets/data_provider_item.dart';
@@ -57,7 +58,7 @@ class DataProviderPage extends StatelessWidget {
                     height: 2,
                   ),
                   Text(
-                    'balance : Rp. 200.000.000',
+                    'balance : ${formatCurrency(2000000)}',
                     style: greyTextStyle.copyWith(
                       fontSize: 12,
                     ),

@@ -5,6 +5,8 @@ import 'package:bank_purse2/ui/widgets/home_tips_item.dart';
 import 'package:bank_purse2/ui/widgets/home_user_item.dart';
 import 'package:flutter/material.dart';
 
+import '../../shared/helpers.dart';
+
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
@@ -208,7 +210,7 @@ class HomePage extends StatelessWidget {
             style: whiteTextStyle,
           ),
           Text(
-            'Rp 12,500',
+            formatCurrency(92500),
             style: whiteTextStyle.copyWith(
               fontSize: 22,
               fontWeight: semiBold,
@@ -247,7 +249,7 @@ class HomePage extends StatelessWidget {
                 ),
               ),
               Text(
-                'of Rp 20.000',
+                'of ${formatCurrency(20000)}',
                 style: blackTextStyle.copyWith(
                   fontWeight: semiBold,
                 ),
@@ -354,12 +356,12 @@ class HomePage extends StatelessWidget {
               color: whiteColor,
             ),
             child: Column(
-              children: const [
+              children: [
                 HomeLatestTransactionsItem(
                   iconUrl: 'assets/ic_transaction_cat1.png',
                   title: 'top up',
                   time: 'Yesterday',
-                  value: '+ 450.000',
+                  value: '+ ${formatCurrency(450000, symbol: '')}',
                 ),
                 HomeLatestTransactionsItem(
                   iconUrl: 'assets/ic_transaction_cat2.png',
