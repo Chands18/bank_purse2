@@ -1,11 +1,30 @@
+import 'package:bank_purse2/shared/helpers.dart';
 import 'package:bank_purse2/shared/theme.dart';
 import 'package:flutter/material.dart';
 
 import '../widgets/buttons.dart';
 import '../widgets/forms.dart';
 
-class SignUpPage extends StatelessWidget {
+class SignUpPage extends StatefulWidget {
   const SignUpPage({super.key});
+
+  @override
+  State<SignUpPage> createState() => _SignUpPageState();
+}
+
+class _SignUpPageState extends State<SignUpPage> {
+  final nameController = TextEditingController(text: '');
+  final emailController = TextEditingController(text: '');
+  final passwordController = TextEditingController(text: '');
+
+  bool validate() {
+    if (nameController.text.isEmpty ||
+        emailController.text.isEmpty ||
+        passwordController.text.isEmpty) {
+      return false;
+    }
+    return true;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -52,6 +71,7 @@ class SignUpPage extends StatelessWidget {
                 //NOTE: Name INPUT
                 CustomFormField(
                   title: 'Full Name',
+                  controller: nameController,
                 ),
                 const SizedBox(
                   height: 16,
@@ -59,6 +79,7 @@ class SignUpPage extends StatelessWidget {
                 //NOTE: EMAIL INPUT
                 CustomFormField(
                   title: 'Email Address',
+                  controller: emailController,
                 ),
                 const SizedBox(
                   height: 16,
@@ -67,6 +88,7 @@ class SignUpPage extends StatelessWidget {
                 CustomFormField(
                   title: 'Password',
                   obscureText: true,
+                  controller: passwordController,
                 ),
 
                 const SizedBox(
@@ -75,11 +97,24 @@ class SignUpPage extends StatelessWidget {
                 CustomFilledButton(
                   title: 'Continue',
                   onPressed: () {
-                    Navigator.pushNamed(context, '/sign-up-set-profile');
+                    if (validate()) {
+                      Navigator.pushNamed(context, '/sign-up-set-profile');
+                    } else {
+                      showCustomSnackbar(context, 'semua field harus diisi');
+                    }
                   },
                 ),
               ],
             ),
+          ),
+          const SizedBox(
+            height: 50,
+          ),
+          CustomTextButton(
+            title: 'Sign In',
+            onPressed: () {
+              Navigator.pushNamed(context, '/sign-in');
+            },
           ),
           const SizedBox(
             height: 50,
